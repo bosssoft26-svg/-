@@ -1,5 +1,5 @@
 body {
-  font-family: "Tahoma", sans-serif;
+  font-family: "Cairo", sans-serif;
   text-align: center;
   background: linear-gradient(to bottom, #001f3f, #0074D9);
   color: #fff;
@@ -10,6 +10,7 @@ body {
 header {
   background: rgba(0,0,0,0.6);
   padding: 20px;
+  font-size: 20px;
 }
 
 video {
@@ -21,7 +22,7 @@ video {
   background: #000;
 }
 
-#status {
+#status, #emotion {
   margin-top: 20px;
   font-size: 22px;
   font-weight: bold;

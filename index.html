@@ -7,13 +7,14 @@
 </head>
 <body>
   <header>
-    <h1>محاكاة قراءة الدماغ</h1>
+    <h1>🧠 محاكاة قراءة الدماغ</h1>
     <p>تصميم وإعداد: المهندس يحيى</p>
   </header>
 
   <main>
-    <video id="webcam" autoplay playsinline></video>
+    <video id="webcam" autoplay playsinline muted></video>
     <div id="status">جارٍ التحليل...</div>
+    <div id="emotion">تعابير الوجه: ...</div>
   </main>
 
   <footer>
@@ -22,6 +23,8 @@
 
   <!-- مكتبات الذكاء الاصطناعي -->
   <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
