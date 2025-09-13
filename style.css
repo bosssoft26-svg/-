@@ -1,39 +1,67 @@
-cat > style.css <<'EOF'
-:root{
-  --bg1: #0f172a;
-  --accent1: #0ea5ff;
-  --card: #ffffff;
-  --muted: #64748b;
+body {
+  font-family: 'Tahoma', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
-  background: linear-gradient(180deg, #071032 0%, #0f172a 100%);
-  color:#e6eef8;
-}
-.topbar{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,0.03)}
-.brand{display:flex;gap:12px;align-items:center}
-.brand .logo{font-size:32px}
-.brand h1{margin:0;font-size:20px}
-.brand .sub{margin:0;color:rgba(230,238,248,0.7);font-size:13px}
 
-.container{display:flex;gap:18px;padding:18px;flex-wrap:wrap;justify-content:center}
-.left-panel{min-width:360px}
-.right-panel{min-width:320px;max-width:420px}
-
-.camera-card{background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); padding:12px;border-radius:14px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-.video-wrap{position:relative;border-radius:14px;overflow:hidden;width:90vw;max-width:560px;height:auto;background:#000}
-video, canvas#overlay{width:100%;height:auto;display:block}
-.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-button{background:var(--accent1);color:#04263a;border:none;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:700}
-button:hover{transform:translateY(-2px)}
-.card{background:rgba(255,255,255,0.05);padding:12px;border-radius:12px;margin-bottom:12px;color:#e6eef8}
-.card.small{font-size:13px}
-.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
-.row:last-child{border-bottom:none}
-.footer{text-align:center;padding:14px;color:rgba(230,238,248,0.6)}
-@media (min-width:900px){
-  .container{align-items:flex-start}
+header {
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-EOF
+
+h1 {
+  color: #d6336c;
+  margin: 0;
+}
+
+.video-area {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+}
+
+video, canvas {
+  width: 300px;
+  height: 220px;
+  background: black;
+  border-radius: 12px;
+}
+
+.controls {
+  margin: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.results {
+  margin: 20px;
+  text-align: right;
+  padding: 10px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: inline-block;
+}
+
+.chart {
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+}

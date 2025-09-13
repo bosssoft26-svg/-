@@ -1,77 +1,57 @@
-cat > index.html <<'EOF'
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yahya — Brain Analyzer</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- مكتبات -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- مكتبة face-api.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- مكتبة Chart.js للرسم البياني -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- سكربت المشروع -->
   <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">🧠</div>
-      <div>
-        <h1>YAHYA Analyzer</h1>
-        <p class="sub">تصميم وإعداد: المهندس يحيى</p>
-      </div>
-    </div>
+  <header>
+    <h1>🧠 Brain Analyzer</h1>
+    <p>تصميم وإعداد: المهندس يحيى</p>
   </header>
 
-  <main class="container">
-    <section class="left-panel">
-      <div class="camera-card">
-        <div class="video-wrap">
-          <video id="video" autoplay muted playsinline></video>
-          <canvas id="overlay"></canvas>
-        </div>
-        <div class="controls">
-          <button id="startCam">🎥 ابدأ الكاميرا</button>
-          <button id="startAnalysis">▶️ ابدأ التحليل</button>
-          <button id="stopAnalysis">⏹️ أوقف التحليل</button>
-          <button id="calibrateBtn">⚙️ معايرة (Calibration)</button>
-          <button id="exportBtn">📤 تصدير تقرير</button>
-        </div>
+  <main>
+    <!-- منطقة الفيديو والتحليل -->
+    <section class="video-area">
+      <div>
+        <video id="video" autoplay muted playsinline></video>
+      </div>
+      <div>
+        <canvas id="overlay"></canvas>
       </div>
     </section>
 
-    <section class="right-panel">
-      <div class="card">
-        <h3>📊 الملخص اللحظي</h3>
-        <div class="row"><span>الحالة:</span><span id="status">—</span></div>
-        <div class="row"><span>مشاعر الوجه:</span><span id="expressions">—</span></div>
-        <div class="row"><span>نسبة التركيز:</span><span id="focus">—</span></div>
-        <div class="row"><span>معدل الرمش:</span><span id="blinks">—</span></div>
-        <div class="row"><span>نبض تقريبي:</span><span id="pulse">—</span></div>
-        <div class="row"><span>مؤشر التوتر:</span><span id="stress">—</span></div>
-      </div>
+    <!-- أزرار التحكم -->
+    <section class="controls">
+      <button id="startCam">📷 ابدأ الكاميرا</button>
+      <button id="startBtn">▶️ ابدأ التحليل</button>
+      <button id="stopBtn">⏹️ أوقف التحليل</button>
+      <button id="exportBtn">📑 تصدير التقرير</button>
+    </section>
 
-      <div class="card">
-        <h3>تغير القيم (آخر 60 ثانية)</h3>
-        <canvas id="historyChart" height="160"></canvas>
-      </div>
+    <!-- النتائج -->
+    <section class="results">
+      <h2>النتائج</h2>
+      <ul>
+        <li>🔹 التعابير: <span id="expression">--</span></li>
+        <li>🔹 التركيز: <span id="focus">--</span></li>
+        <li>🔹 معدل ضربات القلب: <span id="bpm">--</span> / دقيقة</li>
+      </ul>
+    </section>
 
-      <div class="card small">
-        <h4>تعليمات سريعة</h4>
-        <ul>
-          <li>اضبط إضاءة الوجه (إضاءة أمامية أفضل).</li>
-          <liاب>ثبّت الجهاز لتقليل الحركة.</li>
-          <li>أذِن للكاميرا في المتصفح عند المطالبة.</li>
-        </ul>
-      </div>
+    <!-- رسم بياني -->
+    <section class="chart">
+      <canvas id="pulseChart"></canvas>
     </section>
   </main>
-
-  <!-- كانفاس مخفي للنبض -->
-  <canvas id="pulseCanvas" width="64" height="64" style="display:none;"></canvas>
-
-  <footer class="footer">
-    <p>© 2025 — المهندس يحيى</p>
-  </footer>
 </body>
 </html>
-EOF
