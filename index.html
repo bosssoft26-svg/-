@@ -1,70 +1,52 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Brain Analyzer — المهندس يحيى</title>
-
+  <meta charset="UTF-8">
+  <title>Brain Analyzer 🧠</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- المكتبات -->
   <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- سكربت المشروع -->
   <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">🧠</div>
-      <div>
-        <h1>Brain Analyzer</h1>
-        <p class="sub">تصميم وإعداد: المهندس يحيى</p>
-      </div>
-    </div>
+  <header>
+    <h1>Brain Analyzer 🧠</h1>
+    <p>Designed by Engineer Yahya</p>
   </header>
 
-  <main class="container">
-    <section class="video-row">
-      <div class="video-card">
-        <div class="video-wrap">
-          <video id="video" autoplay muted playsinline></video>
-          <canvas id="overlay"></canvas>
-        </div>
-
-        <div class="controls">
-          <button id="startCam" class="btn">📷 ابدأ الكاميرا</button>
-          <button id="startAnalysis" class="btn primary">▶️ ابدأ التحليل</button>
-          <button id="stopAnalysis" class="btn warn">⏹️ أوقف التحليل</button>
-          <button id="stopCam" class="btn">🔌 أوقف الكاميرا</button>
-          <button id="exportReport" class="btn secondary">📤 تصدير التقرير</button>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <h3>النتائج اللحظية</h3>
-        <div class="row"><span>🔹 التعابير:</span><span id="expression">--</span></div>
-        <div class="row"><span>🔹 التركيز:</span><span id="focus">--</span></div>
-        <div class="row"><span>🔹 معدل الرمش:</span><span id="blinks">-- /min</span></div>
-        <div class="row"><span>🔹 نبض تقريبي:</span><span id="pulse">-- bpm</span></div>
-        <div class="row"><span>🔹 مؤشر التوتر:</span><span id="stress">--</span></div>
-        <div class="row"><span>🔹 العمر:</span><span id="age">--</span></div>
-        <div class="row"><span>🔹 الجنس:</span><span id="gender">--</span></div>
+  <main>
+    <section id="controls">
+      <video id="video" autoplay muted></video>
+      <canvas id="overlay"></canvas>
+      <div class="buttons">
+        <button id="startCam">📷 Start Camera</button>
+        <button id="startAnalysis">▶️ Start Analysis</button>
+        <button id="stopAnalysis">⏹ Stop Analysis</button>
+        <button id="exportReport">📄 Export Report</button>
       </div>
     </section>
 
-    <section class="chart-card">
-      <h4>مخطط النبض (آخر قياسات)</h4>
+    <section id="results">
+      <h2>Live Results</h2>
+      <ul>
+        <li>Expression: <span id="exp">--</span></li>
+        <li>Focus: <span id="focus">--</span></li>
+        <li>Respiration Rate: <span id="resp">--</span> /min</li>
+        <li>Pulse: <span id="pulse">--</span> bpm</li>
+        <li>Stress Index: <span id="stress">--</span></li>
+        <li>Estimated Age: <span id="age">--</span></li>
+        <li>Gender: <span id="gender">--</span></li>
+      </ul>
+    </section>
+
+    <section id="chart">
+      <h2>Pulse Chart (last measurements)</h2>
       <canvas id="pulseChart"></canvas>
     </section>
   </main>
 
-  <!-- كانفاس مخفي للـ PPG -->
-  <canvas id="pulseCanvas" width="64" height="64" style="display:none"></canvas>
-
-  <footer class="footer">
-    <p>© 2025 — المهندس يحيى</p>
+  <footer>
+    <p>© 2025 Engineer Yahya</p>
   </footer>
 </body>
 </html>
