@@ -1,30 +1,58 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>Brain Analyzer - المهندس يحيى</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brain Analyzer — المهندس يحيى</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>🧠 محاكاة قراءة الدماغ</h1>
-    <p>تصميم وإعداد: المهندس يحيى</p>
+    <div class="brand">
+      <h1>Brain Analyzer</h1>
+      <p class="sub">تصميم وإعداد: المهندس يحيى</p>
+    </div>
   </header>
 
   <main>
-    <video id="webcam" autoplay playsinline muted></video>
-    <div id="status">جارٍ التحليل...</div>
-    <div id="emotion">تعابير الوجه: ...</div>
+    <section class="left">
+      <div class="camera-wrap">
+        <video id="video" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn">ابدأ التحليل</button>
+        <button id="stopBtn" disabled>أوقف التحليل</button>
+        <button id="exportBtn">تصدير التقرير</button>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="card">
+        <h3>الملخص اللحظي</h3>
+        <div class="row"><strong>الحالة:</strong> <span id="state">—</span></div>
+        <div class="row"><strong>مشاعر الوجه:</strong> <span id="emotion">—</span></div>
+        <div class="row"><strong>نسبة التركيز:</strong> <span id="focus">—</span></div>
+        <div class="row"><strong>معدل الرمش:</strong> <span id="blinkRate">—</span></div>
+        <div class="row"><strong>نبض تقريبي:</strong> <span id="hr">—</span></div>
+      </div>
+
+      <div class="card">
+        <h3>سجل (آخر 60 ثانية)</h3>
+        <canvas id="chart" height="160"></canvas>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 المهندس يحيى - جميع الحقوق محفوظة</p>
+    <p>© 2025 — المهندس يحيى</p>
   </footer>
 
-  <!-- مكتبات الذكاء الاصطناعي -->
-  <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+  <!-- مكتبات -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
