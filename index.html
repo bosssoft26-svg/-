@@ -1,15 +1,36 @@
-<body onload="loadModels()">
-  <h1>Brain Analyzer</h1>
-  <video id="video" width="400" height="300" autoplay muted></video>
-  
-  <div>
-    <button onclick="startCamera()">📷 ابدأ الكاميرا</button>
-    <button onclick="startAnalysis()">▶️ ابدأ التحليل</button>
-    <button onclick="stopAnalysis()">⏹️ أوقف التحليل</button>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Brain Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 Brain Analyzer</h1>
+    <p>تصميم وإعداد: المهندس يحيى</p>
+
+    <div class="video-wrapper">
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn">ابدأ التحليل</button>
+      <button id="stopBtn">أوقف التحليل</button>
+      <button id="exportBtn">تصدير التقرير</button>
+    </div>
+
+    <div class="summary">
+      <h3>الملخص اللحظي</h3>
+      <p>الحالة: <span id="status">---</span></p>
+      <p>مشاعر الوجه: <span id="emotion">---</span></p>
+      <p>نسبة التركيز: <span id="focus">---</span></p>
+      <p>معدل الرمش: <span id="blink">---</span> / دقيقة</p>
+      <p>نبض تقريبي: <span id="pulse">---</span> bpm</p>
+    </div>
   </div>
-
-  <div id="status">النتائج ستظهر هنا...</div>
-
-  <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
-  <script src="script.js"></script>
 </body>
+</html>
