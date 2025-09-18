@@ -1,56 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brain Analyzer</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <div class="container">
-    <h1>🧠 Brain Analyzer</h1>
-    <p class="subtitle">تصميم وإعداد: المهندس نجحي</p>
-
-    <div class="main-grid">
-      <!-- النتائج -->
-      <div class="results">
-        <h2>النتائج اللحظية</h2>
-        <ul>
-          <li>التعبير: <span id="expression">--</span></li>
-          <li>التركيز: <span id="focus">--</span></li>
-          <li>معدل التنفس: <span id="breath">-- /min</span></li>
-          <li>نبض القلب: <span id="pulse">-- bpm</span></li>
-          <li>مؤشر التوتر: <span id="stress">--</span></li>
-          <li>العمر: <span id="age">--</span></li>
-          <li>الجنس: <span id="gender">--</span></li>
-        </ul>
-      </div>
-
-      <!-- الكاميرا -->
-      <div class="camera-box">
-        <video id="video" autoplay muted></video>
-        <canvas id="overlay"></canvas>
-        <div class="buttons">
-          <button id="startCam">📷 ابدأ الكاميرا</button>
-          <button id="stopCam">⏹️ أوقف الكاميرا</button>
-          <button id="startAnalysis">🟢 ابدأ التحليل</button>
-          <button id="stopAnalysis">🔴 أوقف التحليل</button>
-          <button id="exportReport">📄 تصدير التقرير</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- مخطط -->
-    <div class="chart-box">
-      <h2>مخطط النبض (آخر القياسات)</h2>
-      <canvas id="pulseChart"></canvas>
-    </div>
-
-    <footer>
-      © 2025 — المهندس نجحي
-    </footer>
-  </div>
-</body>
-</html>
